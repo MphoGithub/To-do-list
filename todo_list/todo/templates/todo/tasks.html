@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} To-Do List{% endblock title %}
+{% block content %}
+<body>
+    <h1>To-Do List</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {{ task.title }}
+                {% if task.completed %} (Completed) {% endif %}
+                <a href="{% url 'delete_task' task.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_task' %}">Add Task</a>
+</body>
+{%endblock content %}
+</html>

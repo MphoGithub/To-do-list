@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    {% if user.is_authenticated %}
+        <h2>Welcome, {{ user.username }}!</h2>
+        <a href="{% url 'add_task' %}">Add a task</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% endif %}
+</body>
+{% endblock %}
